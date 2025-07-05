@@ -155,7 +155,7 @@ export default {
       loading: false,
       error: null,
       // 개발 환경에서는 로컬 서버, 배포 시에는 실제 API URL로 변경
-      apiUrl: 'http://localhost:8000'
+      apiUrl: 'https://saju-backend-vu8s.onrender.com'
     }
   },
   methods: {

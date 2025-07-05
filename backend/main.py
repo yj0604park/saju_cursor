@@ -9,7 +9,12 @@ app = FastAPI(title="사주 API", version="1.0.0")
 # CORS 설정 (프론트엔드에서 API 호출 가능하도록)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 배포 시에는 실제 도메인으로 변경
+    allow_origins=[
+        "http://localhost:3000",  # 개발 환경
+        "https://saju-frontend.netlify.app",  # 배포된 프론트엔드 (예시)
+        "https://sajuyou.netlify.app",  # 가능한 Netlify URL
+        "*",  # 임시로 모든 도메인 허용
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
