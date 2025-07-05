@@ -125,6 +125,13 @@
           <p class="fortune-text">{{ result.fortune }}</p>
         </div>
 
+        <div class="result-card ai-interpretation" v-if="result.ai_interpretation">
+          <h3>🤖 AI 상세 해석</h3>
+          <div class="ai-content">
+            <p class="ai-text">{{ result.ai_interpretation }}</p>
+          </div>
+        </div>
+
         <button @click="resetForm" class="reset-btn">다시 계산하기</button>
       </div>
 
@@ -413,6 +420,25 @@ select {
 .reset-btn {
   width: 100%;
   margin-top: 20px;
+}
+
+.ai-interpretation {
+  border-left: 4px solid #10b981;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+}
+
+.ai-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ai-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #374151;
+  white-space: pre-line;
 }
 
 @media (max-width: 600px) {

@@ -20,6 +20,9 @@
 
 ### 1.4 환경 변수 설정
 - `PORT`: Render가 자동으로 설정
+- `OPENAI_API_KEY`: OpenAI API 키 (ChatGPT 기능 사용 시 필요)
+  - https://platform.openai.com/api-keys 에서 API 키 생성
+  - Render Dashboard → Environment → Add Environment Variable
 
 ### 1.5 배포
 - "Create Web Service" 클릭

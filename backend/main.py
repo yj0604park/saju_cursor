@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from datetime import datetime
 import json
+from saju_ai import saju_ai
 
 app = FastAPI(title="사주 API", version="1.0.0")
 
@@ -74,6 +75,16 @@ async def calculate_saju(request: SajuRequest):
             "elements": {"wood": 2, "fire": 1, "earth": 1, "metal": 0, "water": 0},
             "fortune": "오행이 균형잡혀 있어 안정적인 운세입니다.",
         }
+
+        # ChatGPT를 사용한 상세 해석 추가
+        try:
+            ai_interpretation = saju_ai.generate_saju_interpretation(saju_result)
+            saju_result["ai_interpretation"] = ai_interpretation
+        except Exception as e:
+            print(f"AI 해석 오류: {e}")
+            saju_result["ai_interpretation"] = (
+                "AI 해석을 불러오는 중 오류가 발생했습니다."
+            )
 
         return SajuResponse(message="사주 계산이 완료되었습니다.", data=saju_result)
 
