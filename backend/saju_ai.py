@@ -11,7 +11,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 class SajuAI:
     def __init__(self):
-        self.client = openai.OpenAI(api_key=openai.api_key)
+        # 이전 버전의 OpenAI API 사용
+        pass
 
     def generate_saju_interpretation(self, saju_data: Dict[str, Any]) -> str:
         """
@@ -21,8 +22,8 @@ class SajuAI:
             # 사주 데이터를 기반으로 프롬프트 생성
             prompt = self._create_saju_prompt(saju_data)
 
-            # ChatGPT API 호출
-            response = self.client.chat.completions.create(
+            # ChatGPT API 호출 (이전 버전)
+            response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                     {

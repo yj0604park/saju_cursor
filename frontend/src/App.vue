@@ -145,10 +145,15 @@
 
 <script>
 import axios from 'axios'
+import config from './config.js'
 
 export default {
   name: 'App',
   data() {
+    // 현재 환경과 API URL 로그
+    console.log('현재 환경:', import.meta.env.DEV ? '개발' : '배포')
+    console.log('API URL:', config.apiUrl)
+    
     return {
       formData: {
         birth_year: '',
@@ -161,8 +166,8 @@ export default {
       result: null,
       loading: false,
       error: null,
-      // 개발 환경에서는 로컬 서버, 배포 시에는 실제 API URL로 변경
-      apiUrl: 'https://saju-backend-vu8s.onrender.com'
+      // 환경별 설정에서 API URL 가져오기
+      apiUrl: config.apiUrl
     }
   },
   methods: {
