@@ -125,6 +125,16 @@
           <p class="fortune-text">{{ result.fortune }}</p>
         </div>
 
+        <div class="result-card">
+          <h3>💰 올해의 금전운</h3>
+          <p class="fortune-text">{{ result.money_fortune }}</p>
+        </div>
+
+        <div class="result-card">
+          <h3>💕 올해의 애정운</h3>
+          <p class="fortune-text">{{ result.love_fortune }}</p>
+        </div>
+
         <div class="result-card ai-interpretation" v-if="result.ai_interpretation">
           <h3>🤖 AI 상세 해석</h3>
           <div class="ai-content">
